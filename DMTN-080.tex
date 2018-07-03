@@ -347,8 +347,14 @@ Each tract includes 81 patches on a 9 by 9 grid.  Each patch is 4200x4200 pixels
 \caption{\label{fig:reruns} Summary of rerun configurations. }
 \end{table}
 
-Most reruns were tested with the new Sky Correction \emph{off} via the config parameter \texttt{doApplySkyCorr=False}.
-We found that the background offsets introduced by the sky correction interferred with the image differencing in both  \texttt{CompareWarp} and  \texttt{SafeClip}. See section \ref{sec:background_matching} for more information.
+\texttt{w\_2018\_18} is the configuration used in the the S18A internal HSC data release.
+However, most reruns were tested with the new Sky Correction \emph{off} via the config parameter \texttt{doApplySkyCorr=False}.
+We found that the background offsets introduced by the sky correction interfered with the image differencing in both  \texttt{CompareWarp} and  \texttt{SafeClip}.
+We can better compare the performance of the algorithms without the additional effects of mismatched backgrounds.
+See section \ref{sec:background_matching} for more information.
+
+We included a rerun of \texttt{CompareWarp} with a non-default configuration, \texttt{w\_2018\_18\_wcNoBadAmp}, because it was the configuration used for coaddition in the S18 PDR1 reprocessing at NSCA, see \url{https://confluence.lsstcorp.org/display/DM/S18+HSC+PDR1+reprocessing} for more information.
+Note that this internal PDR1 reprocessing did include the new sky correction \emph{on}, so it is not an exact representation of the PDR1 rerun.
 
 Artifact rejection involves some trade-offs between cleanliness and depth.
 We want to clip as many artifacts as possible  without degrading the signal-to-noise ratio and without clipping across too many sources, interfering with their PSFs.
