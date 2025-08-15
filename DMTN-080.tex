@@ -151,7 +151,7 @@ In this section, we describe in more detail the artifact rejection method used b
 \subsection{Inputs}
 \label{sec:inputs}
 
-During Data Release Processing we plan to make a three flavors of coadds \citep{dmtn15}.
+During Data Release Processing we plan to make a three flavors of coadds \citep{DMTN-015}.
 \begin{itemize}
 \item Direct Coadd: Stack of images with no change to their PSFs.
 \item  PSF-Homogenized Coadd: Stack of images after they have been reconvolved to a common, constant PSF
@@ -167,7 +167,7 @@ The smallest unit in this geometry is called a patch, an image that is small---u
 Coadds and warps are both stored as one fits image per patch.
 
 Direct warps have been resampled to a common pixel grid.
-PSF-matched warps have been resampled to a common pixel grid and then convolved by a matching kernel that homogenizes their PSF to a constant model PSF, with the default model PSF being a Double Gaussian \citep{ldm151}.
+PSF-matched warps have been resampled to a common pixel grid and then convolved by a matching kernel that homogenizes their PSF to a constant model PSF, with the default model PSF being a Double Gaussian \citep{LDM-151}.
 The best FWHM of the target model PSF depends on the data, specifically the seeing distribution of the input epochs.
 We recommend the 90th--99th percentile of seeing.
 Matching to a FWHM close to the maximum in the data minimizes the number of visits that are matched to a smaller PSF  and require a deconvolution which produces a noisier match.
