@@ -293,13 +293,13 @@ The integrated area will always be less for  \texttt{CompareWarpAssembleCoadd} b
 
 \subsection{Comparison with other Algorithms}
 
-\texttt{CompareWarpAssembleCoadd} is similar to the algorithm described by \citet{Desai2016} and used by the Dark Energy Survey (DES), but it differs in a few major ways.
+\texttt{CompareWarpAssembleCoadd} is similar to the algorithm described by \citet{2016A&C....16...67D} and used by the Dark Energy Survey (DES), but it differs in a few major ways.
 First, the static sky model in DES  is generated from a \emph{catalog} of sources measured on a median PSF-matched coadd.
 In DES, the static sky model is realized in the visit projection (rather than in the coadd projection, as in \texttt{CompareWarpAssembleCoadd}) and is subtracted from the single-epoch images.
 We did not use the approach of subtracting model sources from images because we do not assume that all light is either a  compact source or an artifact.
 There are astrophysical sources such as ultra-diffuse galaxies and Galactic cirrus  that are not catalogued, but we nonetheless want to appear in the coadds at their full SNR.
 
-Second, while we grow the detections on the \texttt{WarpDiff}s  based on  the width of the model PSF, \citet{Desai2016} use an iterative approach.
+Second, while we grow the detections on the \texttt{WarpDiff}s  based on  the width of the model PSF, \citet{2016A&C....16...67D} use an iterative approach.
 They first run detection with a  5-sigma threshold,  then grow the detections to include the surrounding pixels that are above 2.5-sigma, and then make a final pass to grow the detections again, this time including surrounding pixels that are above 1.5-sigma,
 in order to capture all the surrounding low-surface-brightness flux.
 This may be worth trying after background matching as a way to clip very low-surface-brightness ghosts.
@@ -313,7 +313,7 @@ The target PSF model should not matter.
 \label{sec:evaluation}
 
 \texttt{CompareWarpAssembleCoadd} was evaluated on a number of axes: run time, false positives, and false negatives.
-We tested the algorithm on the HSC data release candidate dataset (RC2) which includes \textbf{3 tracts} from the public data release  described in \citet{Bosch2018}.
+We tested the algorithm on the HSC data release candidate dataset (RC2) which includes \textbf{3 tracts} from the public data release  described in \citet{2018PASJ...70S...5B}.
 
 \begin{itemize}
 \item Tract 9813: Ultra-deep (UD) COSMOS field  in filters: HSC-G, HSC-R, HSC-I, HSC-Z, HSC-Y and NB0921
@@ -389,7 +389,7 @@ We compare the metric labeled here as wPerp$_\mathrm{wired}$ std. between reruns
 \caption{\label{fig:wFit}  Two example stellar locus plot output by \texttt{colorAnalysis.py} in the \texttt{pipe\_analysis} package for tract=9813 and rerun= \texttt{w\_2018\_18\_doNotApplySkyCorr} (top) and  \texttt{w\_2018\_18\_sigmaClip} (bottom) The metric compared between reruns is labeled here as wPerp$_\mathrm{wired}$std=14.35 mmag for CompareWarp and 18.48 for sigmaClip.  For CompareWarp In the top panel, this value is approximately equal to the intrinsic width of the stellar locus and therefore indicates good stellar photometry because minimal additional scatter was introduced by photometric errors. For the SigmaClipped coadds (bottom), the width is unacceptably high.}
 \end{figure}
 
-Figure \ref{fig:w_std_fit} compares the width of the $g-r$ vs $r-i$ stellar locus,  the robust standard deviation of the stars perpendicular distance from the locus ($w2$ color per \cite{Ivezic2004b}).
+Figure \ref{fig:w_std_fit} compares the width of the $g-r$ vs $r-i$ stellar locus,  the robust standard deviation of the stars perpendicular distance from the locus ($w2$ color per \cite{2004AN....325..583I}).
 Lower numbers are better.
 The leftmost configuration \texttt{CompareWarp\_skyCorr\_on} is the default configuration used in the S18A HSC data release.
 All other configurations shown do not use the new sky correction.
@@ -403,7 +403,7 @@ We confirm, as shown in QA on previous data challenges, that sigma-clipping prod
 \begin{centering}
 \includegraphics[width=0.9\textwidth]{figures/w_std_fit.pdf}
 \par\end{centering}
-\caption{\label{fig:w_std_fit} Width of the $g-r$ vs $r-i$ stellar locus for the 3 tested tracts and 5 configurations (reruns). Lower numbers are better. The statistic shown is the robust standard deviation of the a star's perpendicular distance from the stellar locus (its $w2$ color defined in \cite{Ivezic2004b}). \texttt{CompareWarp}, the new algorithm presented in this technote, performs better than both SafeClip and the per-pixel sigma-clipped coadds on all three tracts. All reruns except the left-most, have had the HSC SkyCorrection turned off. }
+\caption{\label{fig:w_std_fit} Width of the $g-r$ vs $r-i$ stellar locus for the 3 tested tracts and 5 configurations (reruns). Lower numbers are better. The statistic shown is the robust standard deviation of the a star's perpendicular distance from the stellar locus (its $w2$ color defined in \cite{2004AN....325..583I}). \texttt{CompareWarp}, the new algorithm presented in this technote, performs better than both SafeClip and the per-pixel sigma-clipped coadds on all three tracts. All reruns except the left-most, have had the HSC SkyCorrection turned off. }
 \end{figure}
 
 \subsection{Unclipped artifacts (False Negatives/Under-clipping)}
